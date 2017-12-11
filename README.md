@@ -214,6 +214,7 @@ After methods will be passed an object with the same properties as an issue/pull
 The following convenience methods are made available on all haunt objects. You can call these at any time - though I recommend you only really use them in `after` methods.
 
 + issue.tag - (accepts a tagname) tags an issue/pull-request
++ issue.untag - (accepts a tagname) removes a tag on an issue/pull-request
 + issue.close - closes an issue/pull-request
 + issue.assign - (accepts a username) assigns an issue/pull-request
 + issue.comment - (accepts a string) comments on an issue/pull-request
