@@ -42,9 +42,12 @@ Running haunt with no arguments will output some simple cli documentation.
 
     Flags:
 
-        --stub     - (-s)      stubs the github api, so that requests aren't actually made to live github data
-        --user     - (-u u:p)  specify a username and password for an account to make issue changes on behalf of
-        --reporter - (-r Spec) specify a mocha reporter for test output formatting. If not specified, nothing will be output.
+        --stub       - (-s)      stubs the github api, so that requests aren't actually made to live github data
+        --user       - (-u u:p)  specify a username and password for an account to make issue changes on behalf of
+        --reporter   - (-r Spec) specify a mocha reporter for test output formatting. If not specified, nothing will be output.
+        --since      -           only pull issues wich were modified since the specified date; Does not support PRs. Example: 2017-02-27T15:05:06+01:00
+        --issuesonly - (-i)      only process issues, don't fetch PRs
+        --prasissue  - (-p)      tread PRs as issues ( can be used in combination with --issuesonly, to save API calls)
 
     Example:
 
@@ -152,6 +155,7 @@ When testing issues, your function will be passed an object with the following p
 + issue.user.avatar_url - an avatar url
 + issue.user.id - a user's id number
 + issue.id - the issue's id
++ issue.pull_request - is true if the issue is a pull request
 + issue.comments - an array of github comment objects
 + issue.comments[x].created_at - the created_at time for a comment
 + issue.comments[x].updated_at - the updated_at time for a comment

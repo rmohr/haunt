@@ -5,9 +5,12 @@
 
 {{#magenta}}Flags:{{/magenta}}
 
-    {{#yellow}}--stub{{/yellow}}     - {{#grey}}(-s){{/grey}}      stubs the github api, so that requests aren't actually made to live github data
-    {{#yellow}}--user{{/yellow}}     - {{#grey}}(-u u:p){{/grey}}  specify a username and password for an account to make issue changes on behalf of
-    {{#yellow}}--reporter{{/yellow}} - {{#grey}}(-r Spec){{/grey}} specify a mocha reporter for test output formatting. If not specified, nothing will be output.
+    {{#yellow}}--stub{{/yellow}}       - {{#grey}}(-s){{/grey}}      stubs the github api, so that requests aren't actually made to live github data
+    {{#yellow}}--user{{/yellow}}       - {{#grey}}(-u u:p){{/grey}}  specify a username and password for an account to make issue changes on behalf of
+    {{#yellow}}--reporter{{/yellow}}   - {{#grey}}(-r Spec){{/grey}} specify a mocha reporter for test output formatting. If not specified, nothing will be output.
+    {{#yellow}}--since{{/yellow}}      -           only pull issues wich were modified since the specified date; Does not support PRs. Example: 2017-02-27T15:05:06+01:00
+    {{#yellow}}--issuesonly{{/yellow}} - {{#grey}}(-i){{/grey}}      only process issues, don't fetch PRs
+    {{#yellow}}--prasissue{{/yellow}}  - {{#grey}}(-p){{/grey}}      tread PRs as issues ( can be used in combination with --issuesonly, to save API calls)
 
 {{#magenta}}Example:{{/magenta}}
 

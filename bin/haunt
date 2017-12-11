@@ -16,13 +16,18 @@ var repo;
 var options = {
     user: String,
     stub: Boolean,
-    reporter: String
+    reporter: String,
+    since: String,
+    issuesonly: Boolean,
+    prasissue: Boolean
 };
 
 var shorthand = {
     'u': ['--user'],
     's': ['--stub'],
-    'r': ['--reporter']
+    'r': ['--reporter'],
+    'i': ['--issuesonly'],
+    'p': ['--prasissue', false]
 };
 
 var input = nopt(options, shorthand, process.argv, 2);
@@ -36,7 +41,10 @@ var initialize = function (user, pass) {
         repo: repo,
         stub: input.stub,
         tests: test && require(path.join(process.cwd(), test)),
-        reporter: input.reporter
+        reporter: input.reporter,
+        since: input.since,
+        issuesOnly: input.issuesonly,
+        prasissue: input.prasissue || false
     });
 }
 
@@ -44,6 +52,7 @@ input.argv.remain.forEach(function (arg) {
     if (/\.git$/.test(arg) || /^https?:\/\//.test(arg)) repo = arg.replace(/\.git$/, '');
     else test = arg;
 });
+
 
 if (!repo)      return template.render('docs/index');
 if (input.user) return initialize.apply(this, input.user.split(':'));
